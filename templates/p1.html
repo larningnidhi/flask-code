@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='form.css')}}">		
+</head>
+
+<body class="l">
+	<h1 style="text-align: center;color: DarkSlateGray;">My First Web Site</h1>
+	<div class="nav">
+	<nav class="navbar navbar-expand-sm bg-lights">
+		<ul class="navbar-nav">
+			<li  class="nav-item"> <a href="p1.html" class="nav-link">Home</a></li>
+			<li  class="nav-item"> <a href="templates/p2.html" class="nav-link">link 1</a></li>
+			<li  class="nav-item"> <a href="p3.html" class="nav-link">link 2</a></li>
+		</ul>
+	</nav>
+</div>
+	
+	<div class="form1">
+	<form   method="post" enctype="multipart/form-data">
+		<h1 style="color: DarkSlateGray;">Registration Form</h1>
+		<br>
+		
+		<label  class="form-label">First Name</label>
+		<input type="text" name="fname" class="form-control" placeholder="First Name" id="fname" value="{{fname}}" required><br>
+		<p style="color: red;"> {{errors}} </P>
+		
+		<label class="form-label">Last Name</label>
+		<input type="text" name="lname" class="form-control" placeholder="Last Name" id="lname" value="{{lname}}" required><br>
+		<p style="color: red;"> {{errors1}} </P>
+
+		<label class="form-label">Email</label>
+		<input type="email" name="email" class="form-control" placeholder="email" id="email" value="{{email}}" required ><br>
+		<p style="color: red;"> {{error_email}} </P>
+
+		<label class="form-label">select your city</label>
+		<select name="city" class="form-select">
+            {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select><br>
+		<label class="form-label">Date</label>
+		<input type="date" name="date" class="form-control" placeholder="date" id="date" required><br>
+		<label class="form-label">Age</label>
+		<select name="age" class="form-select">
+			{%for age in range(18 , 30)%}
+				<option value="{{age}}">{{age}}</option>
+			{% endfor%} 
+		</select>
+			<br><br>
+		<label class="form-label">Select your gender:</label>
+        <select name="gender" class="form-select">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+		<input type="file" name="file" class="form-control" required><br><br>
+		<label class="form-label">.Net</label><br>
+		<input type="number" name="number1" class=" form-control" min="1.0" max="100.0" step="0.5" id="1number"><br>
+		<label class="form-label">Java</label><br>
+		<input type="number" name="number2" class="form-control" min="1" max="100" step="3" id="2number"><br>
+		<label class="form-label">C</label><br>
+		<input type="number" name="number3" class="form-control" min="1" max="100" step="3" id="3number"><br>
+		<label class="form-label">php</label><br>
+		<input type="number" name="number4" class="form-control" min="1" max="100" step="3" id="4number"><br>
+		<label class="form-label">Python</label><br>
+		<input type="number" name="number5" class="form-control" min="1" max="100" step="3" id="5number"><br>
+		<label class="form-label">total</label><br>
+		<input type="text" name="total" class="form-control" value="{{total}}" id="re"><br>
+	
+		<input type="submit" name="submit" class="btn btn-dark" id="button" value="submit">
+	</form>
+</div>
+
+<div class="container-fluid">
+<footer class="footer">
+  <p>This is my footer <br>
+  <a href="#" style="color: white;">nidhipatel70@gmail.com</a></p>
+</footer></div>
+</body>
+</html>

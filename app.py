@@ -2,6 +2,10 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+@app.route('/demo')
+def demo():
+    return "demo function"
+
 @app.route('/', methods=['GET', 'POST'])
 def template_file():
     if request.method == 'POST':
